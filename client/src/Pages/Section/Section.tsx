@@ -1,11 +1,12 @@
-import { FlatsList } from '../../components/FlatsList/FlatsList';
+import { FilterPanel } from '../../components/FilterPanel';
+import { FlatsList } from '../../components/FlatsList';
 
 function Section() {
   return (
-    <div>
-      main page
+    <main >
+      <FilterPanel />
       <FlatsList />
-    </div>
+    </main>
   );
 }
 
