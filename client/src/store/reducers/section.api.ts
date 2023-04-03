@@ -11,7 +11,7 @@ export const sectionApi = createApi({
   }),
   endpoints: (build) => ({
     getFlats: build.query<IFlat[], void>({
-      query: () => 'flat'
+      query: () => 'flats'
     }),
     getOneFlat: build.query({
       query: (id: string) => ({
