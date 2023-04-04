@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { useGetFlatsQuery } from '../../store/reducers/section.api';
+
 import { FlatCard } from './FlatCard';
+import { IFlat } from '../../types/types';
 
 const FlatsListStyled = styled.ul`
   display: grid;
@@ -8,14 +9,18 @@ const FlatsListStyled = styled.ul`
   gap: 10px;
 `;
 
-function FlatsList() {
-  const { data: flatsFromServer, isSuccess } = useGetFlatsQuery();
-  const totalFloors = 4;
+interface IFlatsList {
+  flats: IFlat[];
+  totalFloors: number;
+}
 
+function FlatsList({ flats, totalFloors }: IFlatsList) {
   return (
     <FlatsListStyled>
-      {isSuccess &&
-        flatsFromServer.map((flat) => <FlatCard key={flat.id} flat={flat} totalFloors={totalFloors}/>)}
+      {flats.length > 0 &&
+        flats.map((flat) => (
+          <FlatCard key={flat.id} flat={flat} totalFloors={totalFloors} />
+        ))}
     </FlatsListStyled>
   );
 }

@@ -1,3 +1,5 @@
+import { IFilterParams, IFlat } from "../../types/types";
+
 export function getFormattedPrice(price: number): string {
   const formatter = new Intl.NumberFormat("ru");
   

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
@@ -8,6 +9,7 @@ import { InputTwoValue } from './InputTwoValue';
 
 import clearIcon from './icons/clearIcon.svg';
 import extendIcon from './icons/extendIcon.svg';
+import { IFlat } from '../../types/types';
 
 const FilterPanelStyled = styled.section`
   width: 100%;
@@ -126,8 +128,18 @@ const ShowFoundBtn = styled.button`
   }
 `;
 
-function FilterPanel() {
+interface IFilterPanel {
+  flats: IFlat[];
+}
+
+function FilterPanel({ flats }: IFilterPanel) {
   const [showExtendedSearch, setShowExtendedSearch] = useState(false);
+  const searchParams = useSearchParams();
+
+  // useEffect(() => {
+  //   console.log(searchParams);
+  // }, [searchParams]);
+
   return (
     <FilterPanelStyled>
       <Title>Выбрать квартиру</Title>
@@ -162,7 +174,10 @@ function FilterPanel() {
         </ExtenedFilterInputs>
       )}
       <ControlRow>
-        <ExtendedSearchBtn type="button" onClick={() => setShowExtendedSearch((prev) => !prev)}>
+        <ExtendedSearchBtn
+          type="button"
+          onClick={() => setShowExtendedSearch((prev) => !prev)}
+        >
           <img src={extendIcon} alt="Расширенный поиск" />
           Расширенный поиск
         </ExtendedSearchBtn>

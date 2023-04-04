@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { flatsState } from './reducers/sectionSlice';
-import { sectionApi } from './reducers/section.api';
+import { sectionApi } from './API/section.api';
 
 export const rootReducer = combineReducers({
   flatsState,

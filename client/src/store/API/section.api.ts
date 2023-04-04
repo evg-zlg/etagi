@@ -13,7 +13,7 @@ export const sectionApi = createApi({
     getFlats: build.query<IFlat[], void>({
       query: () => 'flats'
     }),
-    getOneFlat: build.query({
+    getOneFlat: build.query<IFlat, string>({
       query: (id: string) => ({
         url: `/flat/${id}`,
       }),

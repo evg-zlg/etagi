@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
@@ -5,6 +6,7 @@ import { IFlat } from '../../types/types';
 import { getFormattedPrice, getPricePerSquare } from './helpers';
 
 import favoritesIcon from './icons/favoritesIcon.svg';
+import { APPRoute } from '../../const/const';
 
 const FlatCardStyled = styled.div`
   background-color: ${baseTheme.colors.lightBg};
@@ -110,30 +112,32 @@ interface IFlatCard {
 function FlatCard({ flat, totalFloors }: IFlatCard) {
   return (
     <FlatCardStyled>
-      <Img src={`${flat.layout_image}`} alt="Схема квартиры" />
-      <Info>
-        <LightText>По ценам застройщика</LightText>
-        <PriceBlock>
-          <div>
-            <Price>{`${getFormattedPrice(flat.price)} \u20bd`}</Price>
-            <LightText>{`${getPricePerSquare(
-              flat.price,
-              flat.area_total,
-            )} \u20bd/м²`}</LightText>
-          </div>
-          <FavoritesBtn type="button" aria-label="Добавить в избранное">
-            <FavoritesIcon />
-          </FavoritesBtn>
-        </PriceBlock>
-        <ParamsBlock>
-          <ParamItem>{`${flat.rooms}-комн.кв.`}</ParamItem>
-          <ParamItem>{`${flat.area_total} м2`}</ParamItem>
-          <ParamItem>{`${flat.floor}/${totalFloors} эт.`}</ParamItem>
-        </ParamsBlock>
-        <LightText>Срок сдачи: 3 квартал 2025</LightText>
-        <Text>Стены: монолитно-каркасные</Text>
-        <Text>Отделка: улучшенная черновая</Text>
-      </Info>
+      <NavLink to={APPRoute.flat + flat.id}>
+        <Img src={`${flat.layout_image}`} alt="Схема квартиры" />
+        <Info>
+          <LightText>По ценам застройщика</LightText>
+          <PriceBlock>
+            <div>
+              <Price>{`${getFormattedPrice(flat.price)} \u20bd`}</Price>
+              <LightText>{`${getPricePerSquare(
+                flat.price,
+                flat.area_total,
+              )} \u20bd/м²`}</LightText>
+            </div>
+            <FavoritesBtn type="button" aria-label="Добавить в избранное">
+              <FavoritesIcon />
+            </FavoritesBtn>
+          </PriceBlock>
+          <ParamsBlock>
+            <ParamItem>{`${flat.rooms}-комн.кв.`}</ParamItem>
+            <ParamItem>{`${flat.area_total} м2`}</ParamItem>
+            <ParamItem>{`${flat.floor}/${totalFloors} эт.`}</ParamItem>
+          </ParamsBlock>
+          <LightText>Срок сдачи: 3 квартал 2025</LightText>
+          <Text>Стены: монолитно-каркасные</Text>
+          <Text>Отделка: улучшенная черновая</Text>
+        </Info>
+      </NavLink>
     </FlatCardStyled>
   );
 }

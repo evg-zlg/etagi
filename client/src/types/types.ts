@@ -13,3 +13,18 @@ export interface IFlat {
 export interface ISection {
   flats: IFlat[],
 }
+
+export interface IFilterParams {
+  min_floor?: number,
+  max_floor?: number,
+  min_price?: number,
+  max_price?: number,
+  min_rooms?: number,
+  max_rooms?: number,
+  min_area_total?: number,
+  max_area_total?: number,
+  min_area_kitchen?: number,
+  max_area_kitchen?: number,
+  min_area_live?: number,
+  max_area_live?: number,
+}
