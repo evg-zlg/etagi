@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { APPRoute } from '../const/const';
+import { APPRoute } from '../../const/const';
 import { Section } from '../../Pages/Section';
 
 function RootRouter() {

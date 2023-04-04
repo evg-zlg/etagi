@@ -1,5 +1,7 @@
-@import "./vars.scss";
+import { createGlobalStyle } from 'styled-components';
+import { baseTheme } from './theme';
 
+const GlobalStyles = createGlobalStyle`
 * {
   padding: 0px;
   margin: 0px;
@@ -10,25 +12,44 @@
 *:after {
   box-sizing: border-box;
 }
-html,
-body {
+html, body {
   height: 100%;
-  min-width: $minWidth + px;
-  color: $primary-color;
+  min-width: 420px;
 
+}
+body {
+  font-family: ${baseTheme.fontFamily};
+  background-color: ${baseTheme.colors.primaryBg};
+  color: ${baseTheme.colors.primaryText};
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+ 
+  > main {
+    flex: 1 1 auto;
+  }
+}
 
+input,
+button,
+textarea {
+  font-family: ${baseTheme.fontFamily};
+  font-size: inherit;
+  outline: none;
+}
 button {
   cursor: pointer;
   color: inherit;
   background-color: inherit;
 }
-
 a {
   color: inherit;
 }
@@ -54,3 +75,7 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+
+`;
+
+export { GlobalStyles };
