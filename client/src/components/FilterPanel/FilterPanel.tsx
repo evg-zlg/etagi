@@ -12,6 +12,7 @@ const FilterPanelStyled = styled.section`
   background-color: ${baseTheme.colors.lightBg};
   border-radius: ${baseTheme.border.radius};
   padding: 20px;
+  box-shadow: ${baseTheme.shadows.blockShadow};
 `;
 
 const Title = styled.h2`
@@ -88,7 +89,7 @@ const ClearBtn = styled.button`
   border: 1px solid ${baseTheme.colors.inputBorder};
   border-radius: ${baseTheme.border.radius};
   transition: background-color 0.3s ease 0s;
-  
+
   &:hover {
     background-color: ${baseTheme.colors.inputClearBtnBgHover};
   }
@@ -127,13 +128,13 @@ function FilterPanel() {
       </FilterInputs>
       <ControlRow>
         <ExtendedSearchBtn type="button">
-          <img src={extendIcon} alt="extended search" />
+          <img src={extendIcon} alt="Расширенный поиск" />
           Расширенный поиск
         </ExtendedSearchBtn>
         <ClearAndShowBtns>
           <ClearBtn type="button">
             Очистить
-            <img src={clearIcon} alt="extended search" />
+            <img src={clearIcon} alt="Очистить" />
           </ClearBtn>
           <ShowFoundBtn type="button">Показать 985 предложений</ShowFoundBtn>
         </ClearAndShowBtns>

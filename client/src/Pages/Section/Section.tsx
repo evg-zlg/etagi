@@ -4,7 +4,7 @@ import { FlatsList } from '../../components/FlatsList';
 import { Wrapper } from '../../styles/components/Wrapper';
 
 const SectionStyled = styled.main`
-  padding: 50px 50px;
+  padding: 50px 0;
 `;
 
 function Section() {

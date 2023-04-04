@@ -22,7 +22,7 @@ const baseTheme = {
     inputClearBtnBgHover: '#f6f6f6',
     inputShowBtn: '#f15044',
     inputShowBtnHover: '#cf3133',
-    paginationBtnText: '#4f4f4f',
+    thirdText: '#4f4f4f',
     paginationBtnBorder: '#d2d2d2',
   },
   shadows: { blockShadow: '0 2px 4px rgba(28,28,28,.08)' },
