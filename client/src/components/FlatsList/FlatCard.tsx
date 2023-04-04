@@ -104,9 +104,10 @@ const Text = styled.p`
 
 interface IFlatCard {
   flat: IFlat;
+  totalFloors: number;
 }
 
-function FlatCard({ flat }: IFlatCard) {
+function FlatCard({ flat, totalFloors }: IFlatCard) {
   return (
     <FlatCardStyled>
       <Img src={`${flat.layout_image}`} alt="Схема квартиры" />
@@ -125,9 +126,9 @@ function FlatCard({ flat }: IFlatCard) {
           </FavoritesBtn>
         </PriceBlock>
         <ParamsBlock>
-          <ParamItem>2-комн.кв.</ParamItem>
-          <ParamItem>34.43 м2</ParamItem>
-          <ParamItem>12/31 эт.</ParamItem>
+          <ParamItem>{`${flat.rooms}-комн.кв.`}</ParamItem>
+          <ParamItem>{`${flat.area_total} м2`}</ParamItem>
+          <ParamItem>{`${flat.floor}/${totalFloors} эт.`}</ParamItem>
         </ParamsBlock>
         <LightText>Срок сдачи: 3 квартал 2025</LightText>
         <Text>Стены: монолитно-каркасные</Text>

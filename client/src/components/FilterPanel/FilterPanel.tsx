@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
@@ -45,9 +47,24 @@ const LabelStyled = styled.label`
   margin-bottom: 0.25rem;
 `;
 
+const ExtenedFilterInputs = styled.div`
+  margin: 0 0 20px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  @media (${baseTheme.brakePoint.lg}) {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+`;
+
 const ControlRow = styled.div`
   display: flex;
   justify-content: space-between;
+
   @media (${baseTheme.brakePoint.lg}) {
     flex-direction: column;
     align-items: stretch;
@@ -56,7 +73,7 @@ const ControlRow = styled.div`
 
 const ExtendedSearchBtn = styled.button`
   font-weight: 500;
-  padding: 0.75rem 1rem;
+  padding: calc(0.75rem - 1px) 1rem;
   border-radius: ${baseTheme.border.radius};
   color: ${baseTheme.colors.extendBtnText};
   transition: background-color 0.3s ease 0s;
@@ -73,6 +90,7 @@ const ExtendedSearchBtn = styled.button`
 const ClearAndShowBtns = styled.div`
   display: flex;
   gap: 10px;
+
   @media (${baseTheme.brakePoint.lg}) {
     flex-direction: column;
     align-items: stretch;
@@ -80,7 +98,7 @@ const ClearAndShowBtns = styled.div`
 `;
 
 const ClearBtn = styled.button`
-  padding: 0.75rem 1rem;
+  padding: calc(0.75rem - 1px) 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +114,7 @@ const ClearBtn = styled.button`
 `;
 
 const ShowFoundBtn = styled.button`
-  padding: 0.75rem 1rem;
+  padding: calc(0.75rem - 1px) 1rem;
   font-weight: 500;
   border-radius: ${baseTheme.border.radius};
   background-color: ${baseTheme.colors.inputShowBtn};
@@ -109,6 +127,7 @@ const ShowFoundBtn = styled.button`
 `;
 
 function FilterPanel() {
+  const [showExtendedSearch, setShowExtendedSearch] = useState(false);
   return (
     <FilterPanelStyled>
       <Title>Выбрать квартиру</Title>
@@ -126,8 +145,24 @@ function FilterPanel() {
           <InputTwoValue variant="area-total" />
         </LabelStyled>
       </FilterInputs>
+      {showExtendedSearch && (
+        <ExtenedFilterInputs>
+          <LabelStyled>
+            Этаж
+            <InputTwoValue variant="floor" />
+          </LabelStyled>
+          <LabelStyled>
+            Площадь кухни, м2
+            <InputTwoValue variant="area-kitchen" />
+          </LabelStyled>
+          <LabelStyled>
+            Жилая площадь, м2
+            <InputTwoValue variant="area-live" />
+          </LabelStyled>
+        </ExtenedFilterInputs>
+      )}
       <ControlRow>
-        <ExtendedSearchBtn type="button">
+        <ExtendedSearchBtn type="button" onClick={() => setShowExtendedSearch((prev) => !prev)}>
           <img src={extendIcon} alt="Расширенный поиск" />
           Расширенный поиск
         </ExtendedSearchBtn>

@@ -10,11 +10,12 @@ const FlatsListStyled = styled.ul`
 
 function FlatsList() {
   const { data: flatsFromServer, isSuccess } = useGetFlatsQuery();
+  const totalFloors = 4;
 
   return (
     <FlatsListStyled>
       {isSuccess &&
-        flatsFromServer.map((flat) => <FlatCard key={flat.id} flat={flat} />)}
+        flatsFromServer.map((flat) => <FlatCard key={flat.id} flat={flat} totalFloors={totalFloors}/>)}
     </FlatsListStyled>
   );
 }

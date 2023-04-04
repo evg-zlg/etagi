@@ -5,10 +5,11 @@ const InputsWrapper = styled.div`
   display: flex;
 `;
 const Input = styled.input`
+  flex: 1 0 auto;
   padding: 11px 20px;
   border: 1px solid ${baseTheme.colors.inputBorder};
   width: 50%;
-  flex: 1 0 auto;
+  transition: border-color 0.3s ease 0s;
 
   &:first-child {
     border-top-left-radius: ${baseTheme.border.radius};
@@ -27,7 +28,7 @@ const Input = styled.input`
 `;
 
 interface IInputTwoValue {
-  variant: 'price' | 'area-total' | 'area-kitchen' | 'area-live';
+  variant: 'price' | 'area-total' | 'area-kitchen' | 'area-live' | 'floor';
 }
 
 function InputTwoValue({ variant }: IInputTwoValue) {
