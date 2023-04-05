@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
-import { getNewRoomsParams } from './helpers';
-import { NamesSearchParams } from '../../const/const';
+import { getNewRoomsParams } from './lib';
+import { urlKeyRooms } from '../../const/const';
 
 const InputsWrapper = styled.div`
   display: flex;
@@ -19,8 +19,10 @@ const Button = styled.button<IButton>`
   border: 1px solid ${baseTheme.colors.inputBorder};
   padding: 0.75rem 1rem;
   transition: border-color 0.2s ease 0s;
-  border-color: ${(props) => props.active ? baseTheme.colors.inputRoomsBtnHoverBorder : 'none'};
-  color: ${(props) => props.active ? baseTheme.colors.inputRoomsBtnHovetText : 'none'};
+  border-color: ${(props) =>
+    props.active ? baseTheme.colors.inputRoomsBtnHoverBorder : 'none'};
+  color: ${(props) =>
+    props.active ? baseTheme.colors.inputRoomsBtnHovetText : 'none'};
 
   &:first-child {
     border-top-left-radius: ${baseTheme.border.radius};
@@ -39,6 +41,7 @@ const Button = styled.button<IButton>`
 `;
 
 function InputRooms() {
+  const key = urlKeyRooms;
   const [searchParams, setSearchParams] = useSearchParams();
 
   const clickStudioHandler = () => {
@@ -62,9 +65,7 @@ function InputRooms() {
     <InputsWrapper>
       <Button
         onClick={clickStudioHandler}
-        active={
-          searchParams.get(NamesSearchParams.rooms)?.includes('0') || false
-        }
+        active={searchParams.get(key)?.includes('0') || false}
         aria-label="Студия"
         type="button"
       >
@@ -72,9 +73,7 @@ function InputRooms() {
       </Button>
       <Button
         onClick={clickOneHandler}
-        active={
-          searchParams.get(NamesSearchParams.rooms)?.includes('1') || false
-        }
+        active={searchParams.get(key)?.includes('1') || false}
         aria-label="1"
         type="button"
       >
@@ -82,9 +81,7 @@ function InputRooms() {
       </Button>
       <Button
         onClick={clickTwoHandler}
-        active={
-          searchParams.get(NamesSearchParams.rooms)?.includes('2') || false
-        }
+        active={searchParams.get(key)?.includes('2') || false}
         aria-label="2"
         type="button"
       >
@@ -92,9 +89,7 @@ function InputRooms() {
       </Button>
       <Button
         onClick={clickThreeHandler}
-        active={
-          searchParams.get(NamesSearchParams.rooms)?.includes('3') || false
-        }
+        active={searchParams.get(key)?.includes('3') || false}
         aria-label="3"
         type="button"
       >
@@ -102,9 +97,7 @@ function InputRooms() {
       </Button>
       <Button
         onClick={clickFourHandler}
-        active={
-          searchParams.get(NamesSearchParams.rooms)?.includes('4') || false
-        }
+        active={searchParams.get(key)?.includes('4') || false}
         aria-label="4+"
         type="button"
       >

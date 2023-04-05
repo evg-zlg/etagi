@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useGetFlatsQuery } from '../../store/API/section.api';
 import { updateFlats } from '../../store/reducers/sectionSlice';
 import { getFilteredFlats } from './helpers';

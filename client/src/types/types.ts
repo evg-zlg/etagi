@@ -28,3 +28,5 @@ export interface IFilterParams {
   min_area_live?: number,
   max_area_live?: number,
 }
+
+export type TFilterParams = 'price' | 'area_total' | 'area_kitchen' | 'area_live' | 'floor';

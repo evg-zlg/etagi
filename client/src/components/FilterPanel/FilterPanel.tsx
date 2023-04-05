@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
 import { InputRooms } from './InputRooms';
-import { InputTwoValue } from './InputTwoValue';
+import { InputMinMaxValue } from './InputMinMaxValue';
 
 import clearIcon from './icons/clearIcon.svg';
 import extendIcon from './icons/extendIcon.svg';
-import { IFlat } from '../../types/types';
+import { IFlat, TFilterParams } from '../../types/types';
+import { hasExtendedFilterParams } from './lib';
 
 const FilterPanelStyled = styled.section`
   width: 100%;
@@ -133,12 +134,20 @@ interface IFilterPanel {
 }
 
 function FilterPanel({ flats }: IFilterPanel) {
-  const [showExtendedSearch, setShowExtendedSearch] = useState(false);
-  const searchParams = useSearchParams();
+  const [showExtendedFilter, setShowExtendedFilter] = useState(false);
+  const [searchParams] = useSearchParams();
 
-  // useEffect(() => {
-  //   console.log(searchParams);
-  // }, [searchParams]);
+  useEffect(() => {
+    if (
+      hasExtendedFilterParams(searchParams, [
+        'area_kitchen',
+        'area_live',
+        'floor',
+      ])
+    ) {
+      setShowExtendedFilter(true);
+    }
+  }, []);
 
   return (
     <FilterPanelStyled>
@@ -150,33 +159,33 @@ function FilterPanel({ flats }: IFilterPanel) {
         </LabelStyled>
         <LabelStyled>
           {`Стоимость, \u20bd`}
-          <InputTwoValue variant="price" />
+          <InputMinMaxValue filterParam="price" />
         </LabelStyled>
         <LabelStyled>
           Площадь, м²
-          <InputTwoValue variant="area-total" />
+          <InputMinMaxValue filterParam="area_total" />
         </LabelStyled>
       </FilterInputs>
-      {showExtendedSearch && (
+      {showExtendedFilter && (
         <ExtenedFilterInputs>
           <LabelStyled>
             Этаж
-            <InputTwoValue variant="floor" />
+            <InputMinMaxValue filterParam="floor" />
           </LabelStyled>
           <LabelStyled>
             Площадь кухни, м2
-            <InputTwoValue variant="area-kitchen" />
+            <InputMinMaxValue filterParam="area_kitchen" />
           </LabelStyled>
           <LabelStyled>
             Жилая площадь, м2
-            <InputTwoValue variant="area-live" />
+            <InputMinMaxValue filterParam="area_live" />
           </LabelStyled>
         </ExtenedFilterInputs>
       )}
       <ControlRow>
         <ExtendedSearchBtn
           type="button"
-          onClick={() => setShowExtendedSearch((prev) => !prev)}
+          onClick={() => setShowExtendedFilter((prev) => !prev)}
         >
           <img src={extendIcon} alt="Расширенный поиск" />
           Расширенный поиск
@@ -186,7 +195,7 @@ function FilterPanel({ flats }: IFilterPanel) {
             Очистить
             <img src={clearIcon} alt="Очистить" />
           </ClearBtn>
-          <ShowFoundBtn type="button">Показать 985 предложений</ShowFoundBtn>
+          <ShowFoundBtn type="button">{`Показать ${flats.length} предложений`}</ShowFoundBtn>
         </ClearAndShowBtns>
       </ControlRow>
     </FilterPanelStyled>

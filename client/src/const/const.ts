@@ -7,8 +7,4 @@ export enum APPRoute {
 
 export const countFlatsOnPage = 8;
 
-export enum NamesSearchParams {
-  rooms = 'rooms',
-  min_price ='min_price',
-  max_price = 'max_price',
-}
+export const urlKeyRooms = 'rooms';
