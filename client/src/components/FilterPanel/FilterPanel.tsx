@@ -9,8 +9,8 @@ import { InputMinMaxValue } from './InputMinMaxValue';
 
 import clearIcon from './icons/clearIcon.svg';
 import extendIcon from './icons/extendIcon.svg';
-import { IFlat, TFilterParams } from '../../types/types';
-import { hasExtendedFilterParams } from './lib';
+import { IFlat} from '../../types/types';
+import { getTextForShowBtn, hasExtendedFilterParams } from './lib';
 
 const FilterPanelStyled = styled.section`
   width: 100%;
@@ -146,7 +146,6 @@ function FilterPanel({ flats }: IFilterPanel) {
     setSearchParams(searchParams);
   };
 
-
   useEffect(() => {
     if (
       hasExtendedFilterParams(searchParams, [
@@ -205,7 +204,7 @@ function FilterPanel({ flats }: IFilterPanel) {
             Очистить
             <img src={clearIcon} alt="Очистить" />
           </ClearBtn>
-          <ShowFoundBtn type="button">{`Показать ${flats.length} предложений`}</ShowFoundBtn>
+          <ShowFoundBtn type="button">{getTextForShowBtn(flats.length)}</ShowFoundBtn>
         </ClearAndShowBtns>
       </ControlRow>
     </FilterPanelStyled>

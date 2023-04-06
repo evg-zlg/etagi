@@ -29,4 +29,4 @@ export interface IFilterParams {
   max_area_live?: number,
 }
 
-export type TFilterParams = 'price' | 'area_total' | 'area_kitchen' | 'area_live' | 'floor';
+export type TFilterParams = 'rooms' | 'price' | 'area_total' | 'area_kitchen' | 'area_live' | 'floor';

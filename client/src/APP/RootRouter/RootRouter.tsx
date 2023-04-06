@@ -1,13 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { APPRoute } from '../../const/const';
-import { Section } from '../../Pages/Section';
 import { Flat } from '../../Pages/Flat';
+import { Main } from '../../Pages/Main/Main';
+
+import { APPRoute } from '../../const/const';
 
 function RootRouter() {
   return (
     <Routes>
-      <Route path={APPRoute.section} element={<Section />} />
+      <Route path={APPRoute.section} element={<Main />} />
       <Route path={`${APPRoute.flat}:id`} element={<Flat />} />
     </Routes>
   );

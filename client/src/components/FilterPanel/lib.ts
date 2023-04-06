@@ -65,3 +65,18 @@ export function hasExtendedFilterParams(
 
   return false;
 }
+
+
+export function getTextForShowBtn(n: number): string {
+  
+  if (n === 0) return `Нет предложений`;
+
+  // предложение - 1, 21, 31, ... 101, ...
+  if (n % 10 === 1 && n % 100 !== 11) return `Показать ${n} предложение`;
+
+  // предложения - 2-4, 22-24, ..., 102-104, ...
+  if (n % 10 >= 2 && n % 10 <= 4) return `Показать ${n} предложения`;
+
+  // other cases: предложений - 5-20, 25-30, ..., 100, ... 
+  return `Показать ${n} предложений`;
+}
