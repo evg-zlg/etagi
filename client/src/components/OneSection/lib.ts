@@ -1,4 +1,5 @@
-import { IFlat, TSortType } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
+import { TSortType } from './types';
 
 export function getFormattedPrice(price: number): string {
   if (price === 0) return '';

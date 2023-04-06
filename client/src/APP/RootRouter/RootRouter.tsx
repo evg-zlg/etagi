@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import { Flat } from '../../Pages/Flat';
-import { Main } from '../../Pages/Main/Main';
+import { Main } from '../../Pages/Main';
 
 import { APPRoute } from '../../const/const';
 

@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://localhost:8080';
+export const SERVER_URL = 'https://etagi-production.up.railway.app/';
 
 export enum APPRoute {
   section = '/',
@@ -6,5 +6,3 @@ export enum APPRoute {
 }
 
 export const countFlatsOnPage = 6;
-
-// export const urlKeyRooms = 'rooms';

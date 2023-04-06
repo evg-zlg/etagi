@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { TSortType } from '../../types/types';
+import { TSortType } from '../OneSection/types';
 import { baseTheme } from '../../styles/theme';
 
 const SortPanelStyled = styled.div`

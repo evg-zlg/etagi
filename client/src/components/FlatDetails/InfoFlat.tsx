@@ -10,6 +10,11 @@ const InfoFlatStyled = styled.section`
   background-color: ${baseTheme.colors.lightBg};
   padding: 25px;
   display: flex;
+
+  @media (${baseTheme.brakePoint.sm}) {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
 `;
 
 const ColumnLayout = styled.div`
@@ -21,6 +26,9 @@ const PriceBlock = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: right;
+  @media (${baseTheme.brakePoint.sm}) {
+    text-align: left;
+  }
 `;
 
 const Title = styled.h2`
@@ -56,7 +64,9 @@ const Param = styled.p`
   color: ${baseTheme.colors.secondaryText};
 `;
 
-const Value = styled.p``;
+const Value = styled.p`
+  white-space: nowrap;
+`;
 
 interface IInfoFlatProps {
   flat: IFlat;

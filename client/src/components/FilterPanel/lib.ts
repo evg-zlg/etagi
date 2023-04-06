@@ -1,11 +1,10 @@
-import { urlKeyRooms } from '../../const/const';
-import { TFilterParams } from '../../types/types';
+import { TFilterParams } from '../OneSection/types';
 
 export function getNewRoomsParams(
   currentParams: URLSearchParams,
   btn: string,
 ): URLSearchParams {
-  const key = urlKeyRooms;
+  const key = 'rooms';
   const urlParams = currentParams;
   const urlParamsValue = urlParams.get(key);
 
