@@ -15,6 +15,7 @@ interface IFlatsList {
 }
 
 function FlatsList({ flats, totalFloors }: IFlatsList) {
+
   return (
     <FlatsListStyled>
       {flats.length > 0 &&

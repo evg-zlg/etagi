@@ -19,10 +19,11 @@ const SectionStyled = styled.main`
 `;
 
 function Section() {
+  const totalFloors = 4;
+  
   const dispatch = useAppDispatch();
   const { flats: flatsFromStore } = useAppSelector((state) => state.flatsState);
   const { data: flatsFromServer, isSuccess, isError } = useGetFlatsQuery();
-  const totalFloors = 4;
   const [searchParams] = useSearchParams();
   const [filteredFlats, setFilteredFlats] = useState<IFlat[]>([]);
 

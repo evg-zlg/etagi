@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
@@ -16,6 +17,10 @@ const FlatCardStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  > a {
+    text-align: center;
+  }
 `;
 
 const Img = styled.img`
@@ -24,6 +29,7 @@ const Img = styled.img`
 `;
 
 const Info = styled.div`
+  text-align: left;
   padding: 10px;
 `;
 
@@ -54,6 +60,7 @@ const FavoritesBtn = styled.button`
   padding: calc(0.5rem - 1px);
   border: 1px solid ${baseTheme.colors.inputBorder};
   transition: border-color 0.3s ease 0s;
+  z-index: 1;
 
   &:hover {
     border-color: ${baseTheme.colors.inputHover};
@@ -111,6 +118,11 @@ interface IFlatCard {
 }
 
 function FlatCard({ flat, totalFloors }: IFlatCard) {
+
+  const favoritesBtnClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+  
   return (
     <FlatCardStyled>
       <NavLink to={APPRoute.flat + flat.id}>
@@ -125,7 +137,11 @@ function FlatCard({ flat, totalFloors }: IFlatCard) {
                 flat.area_total,
               )} \u20bd/м²`}</LightText>
             </div>
-            <FavoritesBtn type="button" aria-label="Добавить в избранное">
+            <FavoritesBtn
+              type="button"
+              aria-label="Добавить в избранное"
+              onClick={favoritesBtnClickHandler}
+            >
               <FavoritesIcon />
             </FavoritesBtn>
           </PriceBlock>
