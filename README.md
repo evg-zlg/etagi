@@ -4,7 +4,7 @@
   <img style="height: 250px" src="https://user-images.githubusercontent.com/85534817/230380571-f3a68afe-7ee3-4fee-9d31-3f58de611fb5.png" />
  </a>
  <p>Поиск и отображение квартир в одной секции дома</p>
- <a href="https://etagi-one-section-evg-zlg.netlify.app/" target="_blank"> Играть </a>
+ <a href="https://etagi-one-section-evg-zlg.netlify.app/" target="_blank"> Открыть деплой </a>
 </div>
 
 ## Технологический стек
