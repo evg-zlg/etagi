@@ -1,4 +1,4 @@
-import { IFlat } from '../../types/types';
+import { IFlat, TSortType } from '../../types/types';
 
 export function getFormattedPrice(price: number): string {
   if (price === 0) return '';
@@ -10,9 +10,10 @@ export function getFormattedPrice(price: number): string {
 export function getFilteredAndSortFlats(
   searchParams: URLSearchParams,
   flats: IFlat[],
+  sortType: TSortType,
 ): IFlat[] {
   // result array
-  let filteredFlats: IFlat[] = flats;
+  let filteredFlats: IFlat[] = [...flats];
 
   // filters
   const rooms = 'rooms';
@@ -103,6 +104,22 @@ export function getFilteredAndSortFlats(
     filteredFlats = filteredFlats.filter(
       (flat) => flat.floor <= Number(searchValue),
     );
+  }
+
+  // sort
+  if (sortType === 'total-price-asc') {
+    filteredFlats = filteredFlats.sort((a, b) => a.price - b.price);
+  }
+  if (sortType === 'total-price-desc') {
+    filteredFlats = filteredFlats.sort((a, b) => b.price - a.price);
+  }
+  if (sortType === 'square-price') {
+    filteredFlats = filteredFlats.sort(
+      (a, b) => a.price / a.area_total - b.price / b.area_total,
+    );
+  }
+  if (sortType === 'area') {
+    filteredFlats = filteredFlats.sort((a, b) => a.area_total - b.area_total);
   }
 
   return filteredFlats;

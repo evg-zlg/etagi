@@ -44,12 +44,20 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
     <SortPanelStyled>
       <Title>Сортировать:</Title>
       <Btn
-        aria-label="Стоимость"
+        aria-label="Стоимость по возрастанию"
         type="button"
-        active={sortType === 'total-price'}
-        onClick={() => setSortType('total-price')}
+        active={sortType === 'total-price-asc'}
+        onClick={() => setSortType('total-price-asc')}
       >
-        cтоимость
+        cтоимость ↑
+      </Btn>
+      <Btn
+        aria-label="Стоимость по убыванию"
+        type="button"
+        active={sortType === 'total-price-desc'}
+        onClick={() => setSortType('total-price-desc')}
+      >
+        стоимость ↓
       </Btn>
       <Btn
         aria-label="Цена за квадрат"
@@ -67,14 +75,7 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
       >
         площадь
       </Btn>
-      <Btn
-        aria-label="Комнатность"
-        type="button"
-        active={sortType === 'rooms'}
-        onClick={() => setSortType('rooms')}
-      >
-        комнатность
-      </Btn>
+      
     </SortPanelStyled>
   );
 }

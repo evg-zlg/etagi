@@ -31,4 +31,4 @@ export interface IFilterParams {
 
 export type TFilterParams = 'rooms' | 'price' | 'area_total' | 'area_kitchen' | 'area_live' | 'floor';
 
-export type TSortType = 'total-price' | 'square-price' | 'area' | 'rooms';
+export type TSortType = 'total-price-asc' | 'total-price-desc' | 'square-price' | 'area';

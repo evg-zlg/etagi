@@ -46,7 +46,7 @@ function Section() {
   const [filteredFlats, setFilteredFlats] = useState<IFlat[]>([]);
   const [viewFlats, setViewFlats] = useState<IFlat[]>([]);
   const [countFlats, setCountFlats] = useState<number>(countFlatsOnPage);
-  const [sortType, setSortType] = useState<TSortType>('total-price');
+  const [sortType, setSortType] = useState<TSortType>('total-price-asc');
 
   const viewMoreBtnClickHandler = () => {
     setCountFlats((prev) => prev + countFlatsOnPage);
@@ -60,8 +60,8 @@ function Section() {
   }, [flatsFromServer]);
 
   useEffect(() => {
-    setFilteredFlats(getFilteredAndSortFlats(searchParams, flatsFromStore));
-  }, [flatsFromStore, searchParams]);
+    setFilteredFlats(getFilteredAndSortFlats(searchParams, flatsFromStore, sortType));
+  }, [flatsFromStore, searchParams, sortType]);
 
   useEffect(() => {
     setViewFlats(filteredFlats.slice(0, countFlats));
