@@ -14,6 +14,7 @@ import { IFlat } from '../../Models/FlatModel';
 import { TSortType } from './types';
 import { countFlatsOnPage } from '../../const/const';
 import { SortPanel } from '../SortPanel';
+import { Loader } from '../Loader';
 
 const SectionStyled = styled.main`
   padding: 50px 0;
@@ -42,7 +43,7 @@ function OneSection() {
 
   const dispatch = useAppDispatch();
   const { flats: flatsFromStore } = useAppSelector((state) => state.flatsState);
-  const { data: flatsFromServer, isSuccess, isError } = useGetFlatsQuery();
+  const { data: flatsFromServer, isSuccess, isError, isLoading } = useGetFlatsQuery();
   const [searchParams] = useSearchParams();
   const [filteredFlats, setFilteredFlats] = useState<IFlat[]>([]);
   const [viewFlats, setViewFlats] = useState<IFlat[]>([]);
@@ -73,6 +74,7 @@ function OneSection() {
       <FilterPanel flats={filteredFlats} />
       <SortPanel sortType={sortType} setSortType={setSortType}/>
       {isError && <p>Ошибка загрузки с сервера</p>}
+      {isLoading && <Loader />}
       {isSuccess && <FlatsList flats={viewFlats} totalFloors={totalFloors} />}
       {(viewFlats.length > 0 && viewFlats.length < filteredFlats.length) && (
         <ViewMoreBtn type="button" aria-label="Показать ещё" onClick={viewMoreBtnClickHandler}>

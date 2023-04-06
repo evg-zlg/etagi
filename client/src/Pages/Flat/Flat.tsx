@@ -4,6 +4,7 @@ import { useGetOneFlatQuery } from '../../store/API/section.api';
 import { FlatDetails } from '../../components/FlatDetails';
 
 import { Wrapper } from '../../styles/components/Wrapper';
+import { Loader } from '../../components/Loader';
 
 function Flat() {
   const params = useParams();
@@ -15,7 +16,7 @@ function Flat() {
 
   return (
     <Wrapper>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {isSuccess && <FlatDetails flat={flat}/>}
     </Wrapper>
   );
