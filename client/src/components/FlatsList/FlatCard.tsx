@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { getPricePerSquare } from './lib';
 
 import favoritesIcon from './icons/favoritesIcon.svg';

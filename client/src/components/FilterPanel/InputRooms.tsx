@@ -1,10 +1,8 @@
-// import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
 import { getNewRoomsParams } from './lib';
-import { urlKeyRooms } from '../../const/const';
 
 const InputsWrapper = styled.div`
   display: flex;
@@ -41,7 +39,7 @@ const Button = styled.button<IButton>`
 `;
 
 function InputRooms() {
-  const key = urlKeyRooms;
+  const key = 'rooms';
   const [searchParams, setSearchParams] = useSearchParams();
 
   const clickStudioHandler = () => {

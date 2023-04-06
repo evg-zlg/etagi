@@ -9,7 +9,7 @@ import { InputMinMaxValue } from './InputMinMaxValue';
 
 import clearIcon from './icons/clearIcon.svg';
 import extendIcon from './icons/extendIcon.svg';
-import { IFlat} from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { getTextForShowBtn, hasExtendedFilterParams } from './lib';
 
 const FilterPanelStyled = styled.section`

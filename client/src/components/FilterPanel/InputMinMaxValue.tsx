@@ -5,7 +5,7 @@ import { baseTheme } from '../../styles/theme';
 
 import { useDebounce } from '../../hooks/useDebounce';
 
-import { TFilterParams } from '../../types/types';
+import { TFilterParams } from '../OneSection/types';
 import { getNewMinMaxParams, getWithoutSpaces } from './lib';
 import { getFormattedPrice } from '../OneSection/lib';
 

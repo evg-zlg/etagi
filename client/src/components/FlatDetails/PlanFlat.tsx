@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { baseTheme } from '../../styles/theme';
 
 const PlanFlatStyled = styled.section`
@@ -7,7 +7,7 @@ const PlanFlatStyled = styled.section`
   box-shadow: ${baseTheme.shadows.blockShadow};
   background-color: ${baseTheme.colors.lightBg};
   padding: 25px;
-  width: 800px;
+  width: 100%;
 `;
 
 const Title = styled.h1`

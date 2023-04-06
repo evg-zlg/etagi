@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { FlatCard } from './FlatCard';
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 
 const FlatsListStyled = styled.ul`
   display: grid;
