@@ -1,4 +1,4 @@
-// import { useEffect, useState } from 'react';
+// import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';

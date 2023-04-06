@@ -67,10 +67,14 @@ function InputMinMaxValue({ filterParam }: IInputMinMaxValueProps) {
   useEffect(() => {
     const urlParamMinValue = searchParams.get(keyMin);
     const urlParamMaxValue = searchParams.get(keyMax);
-    if (urlParamMinValue !== null) {
+    if (urlParamMinValue === null) {
+      setMinValue('');
+    } else {
       setMinValue(urlParamMinValue);
-    }
-    if (urlParamMaxValue !== null) {
+    };
+    if (urlParamMaxValue === null) {
+      setMaxValue('');
+    } else {
       setMaxValue(urlParamMaxValue);
     }
   }, [searchParams]);

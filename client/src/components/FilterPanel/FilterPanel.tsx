@@ -135,7 +135,17 @@ interface IFilterPanel {
 
 function FilterPanel({ flats }: IFilterPanel) {
   const [showExtendedFilter, setShowExtendedFilter] = useState(false);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const clearClickHandler = () => {
+    const keysParams: string[] = [];
+    searchParams.forEach((_, key) => {
+      keysParams.push(key);
+    });
+    keysParams.forEach((key) => searchParams.delete(key));
+    setSearchParams(searchParams);
+  };
+
 
   useEffect(() => {
     if (
@@ -191,7 +201,7 @@ function FilterPanel({ flats }: IFilterPanel) {
           Расширенный поиск
         </ExtendedSearchBtn>
         <ClearAndShowBtns>
-          <ClearBtn type="button">
+          <ClearBtn type="button" onClick={clearClickHandler}>
             Очистить
             <img src={clearIcon} alt="Очистить" />
           </ClearBtn>
