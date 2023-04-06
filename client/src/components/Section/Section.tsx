@@ -9,9 +9,10 @@ import { updateFlats } from '../../store/reducers/sectionSlice';
 import { FilterPanel } from '../FilterPanel';
 import { FlatsList } from '../FlatsList';
 import { getFilteredAndSortFlats, getTextForViewMoreBtn } from './lib';
-import { IFlat } from '../../types/types';
+import { IFlat, TSortType } from '../../types/types';
 import { countFlatsOnPage } from '../../const/const';
 import { baseTheme } from '../../styles/theme';
+import { SortPanel } from '../SortPanel';
 
 const SectionStyled = styled.main`
   padding: 50px 0;
@@ -45,6 +46,7 @@ function Section() {
   const [filteredFlats, setFilteredFlats] = useState<IFlat[]>([]);
   const [viewFlats, setViewFlats] = useState<IFlat[]>([]);
   const [countFlats, setCountFlats] = useState<number>(countFlatsOnPage);
+  const [sortType, setSortType] = useState<TSortType>('total-price');
 
   const viewMoreBtnClickHandler = () => {
     setCountFlats((prev) => prev + countFlatsOnPage);
@@ -68,6 +70,7 @@ function Section() {
   return (
     <SectionStyled>
       <FilterPanel flats={filteredFlats} />
+      <SortPanel sortType={sortType} setSortType={setSortType}/>
       {isError && <p>Ошибка загрузки с сервера</p>}
       {isSuccess && <FlatsList flats={viewFlats} totalFloors={totalFloors} />}
       {(viewFlats.length > 0 && viewFlats.length < filteredFlats.length) && (

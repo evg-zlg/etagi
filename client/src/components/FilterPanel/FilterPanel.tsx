@@ -70,6 +70,7 @@ const ControlRow = styled.div`
 
   @media (${baseTheme.brakePoint.lg}) {
     flex-direction: column;
+    gap: 10px;
     align-items: stretch;
   }
 `;

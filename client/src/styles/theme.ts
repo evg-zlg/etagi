@@ -24,6 +24,7 @@ const baseTheme = {
     inputShowBtnHover: '#cf3133',
     thirdText: '#4f4f4f',
     paginationBtnBorder: '#d2d2d2',
+    borderBottomHover: '#faa88e',
   },
   shadows: { blockShadow: '0 2px 4px rgba(28,28,28,.08)' },
   brakePoint: {
