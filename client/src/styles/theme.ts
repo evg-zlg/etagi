@@ -41,7 +41,7 @@ const baseTheme = {
     sm: `${sizes.sm}px`,
     xs: `${sizes.xs}px`,
   },
-  wrapperMaxWidth: '855px',
+  wrapperMaxWidth: '955px',
   border: {
     radius: '.25rem',
   },

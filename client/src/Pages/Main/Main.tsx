@@ -1,10 +1,10 @@
-import { Section } from '../../components/Section';
+import { OneSection } from '../../components/OneSection';
 import { Wrapper } from '../../styles/components/Wrapper';
 
 function Main() {
   return (
     <Wrapper>
-      <Section />
+      <OneSection />
     </Wrapper>
   );
 }

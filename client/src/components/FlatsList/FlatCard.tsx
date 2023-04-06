@@ -8,7 +8,7 @@ import { getPricePerSquare } from './lib';
 
 import favoritesIcon from './icons/favoritesIcon.svg';
 import { APPRoute } from '../../const/const';
-import { getFormattedPrice } from '../Section/lib';
+import { getFormattedPrice } from '../OneSection/lib';
 
 const FlatCardStyled = styled.div`
   background-color: ${baseTheme.colors.lightBg};

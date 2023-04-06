@@ -7,7 +7,7 @@ import { useDebounce } from '../../hooks/useDebounce';
 
 import { TFilterParams } from '../../types/types';
 import { getNewMinMaxParams, getWithoutSpaces } from './lib';
-import { getFormattedPrice } from '../Section/lib';
+import { getFormattedPrice } from '../OneSection/lib';
 
 const InputsWrapper = styled.div`
   display: flex;

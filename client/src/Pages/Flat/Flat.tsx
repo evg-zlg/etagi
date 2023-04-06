@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 
 import { useGetOneFlatQuery } from '../../store/API/section.api';
+import { FlatDetails } from '../../components/FlatDetails';
+import { Wrapper } from '../../styles/components/Wrapper';
 
 function Flat() {
   const params = useParams();
@@ -11,10 +13,10 @@ function Flat() {
   } = useGetOneFlatQuery(params.id || '');
 
   return (
-    <div>
+    <Wrapper>
       {isLoading && <p>Loading...</p>}
-      {isSuccess && flat.price}
-    </div>
+      {isSuccess && <FlatDetails flat={flat}/>}
+    </Wrapper>
   );
 }
 

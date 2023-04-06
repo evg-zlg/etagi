@@ -36,7 +36,7 @@ const ViewMoreBtn = styled.button`
   }
 `;
 
-function Section() {
+function OneSection() {
   const totalFloors = 4;
 
   const dispatch = useAppDispatch();
@@ -82,4 +82,4 @@ function Section() {
   );
 }
 
-export { Section };
+export { OneSection };
