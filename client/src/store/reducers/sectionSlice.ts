@@ -4,11 +4,11 @@ import { countFlatsOnPage } from '../../const/const';
 
 type initialStateProps = {
   flats: IFlat[];
-  conuntOnPage: number;
+  countOnPage: number;
 };
 const initialState: initialStateProps = {
   flats: [],
-  conuntOnPage: countFlatsOnPage,
+  countOnPage: countFlatsOnPage,
 };
 
 export const flatsSlice = createSlice({
@@ -19,7 +19,7 @@ export const flatsSlice = createSlice({
       state.flats = action.payload;
     },
     updateCountFlatsOnPage(state, action: PayloadAction<number>) {
-      state.conuntOnPage = action.payload;
+      state.countOnPage = action.payload;
     },
   },
 });

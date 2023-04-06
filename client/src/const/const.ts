@@ -5,6 +5,6 @@ export enum APPRoute {
   flat = '/flat/',
 }
 
-export const countFlatsOnPage = 8;
+export const countFlatsOnPage = 6;
 
 export const urlKeyRooms = 'rooms';
