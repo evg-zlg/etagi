@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { countFlatsOnPage } from '../../const/const';
 
 type initialStateProps = {

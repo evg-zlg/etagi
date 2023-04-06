@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { baseTheme } from '../../styles/theme';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useGetFlatsQuery } from '../../store/API/section.api';
@@ -9,9 +10,9 @@ import { updateFlats } from '../../store/reducers/sectionSlice';
 import { FilterPanel } from '../FilterPanel';
 import { FlatsList } from '../FlatsList';
 import { getFilteredAndSortFlats, getTextForViewMoreBtn } from './lib';
-import { IFlat, TSortType } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
+import { TSortType } from './types';
 import { countFlatsOnPage } from '../../const/const';
-import { baseTheme } from '../../styles/theme';
 import { SortPanel } from '../SortPanel';
 
 const SectionStyled = styled.main`

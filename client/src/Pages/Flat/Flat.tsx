@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { useGetOneFlatQuery } from '../../store/API/section.api';
 import { FlatDetails } from '../../components/FlatDetails';
+
 import { Wrapper } from '../../styles/components/Wrapper';
 
 function Flat() {

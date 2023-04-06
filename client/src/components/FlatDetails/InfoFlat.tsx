@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { baseTheme } from '../../styles/theme';
 import { getFormattedPrice } from '../OneSection/lib';
 import { getPricePerSquare } from '../FlatsList/lib';

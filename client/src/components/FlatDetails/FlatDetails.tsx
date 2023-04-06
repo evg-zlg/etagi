@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IFlat } from '../../types/types';
+import { IFlat } from '../../Models/FlatModel';
 import { PlanFlat } from './PlanFlat';
 import { InfoFlat } from './InfoFlat';
 

@@ -7,4 +7,4 @@ export enum APPRoute {
 
 export const countFlatsOnPage = 6;
 
-export const urlKeyRooms = 'rooms';
+// export const urlKeyRooms = 'rooms';
