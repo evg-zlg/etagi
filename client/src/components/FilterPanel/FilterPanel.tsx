@@ -40,8 +40,7 @@ const FilterInputs = styled.div`
     flex-wrap: wrap;
   }
 `;
-
-const LabelStyled = styled.label`
+const WrappInputs = styled.div`
   flex: 1 0 30%;
   display: block;
   flex-direction: column;
@@ -163,33 +162,33 @@ function FilterPanel({ flats }: IFilterPanel) {
     <FilterPanelStyled>
       <Title>Выбрать квартиру</Title>
       <FilterInputs>
-        <LabelStyled>
+        <WrappInputs>
           Комнатность
           <InputRooms />
-        </LabelStyled>
-        <LabelStyled>
+        </WrappInputs>
+        <WrappInputs>
           {`Стоимость, \u20bd`}
           <InputMinMaxValue filterParam="price" />
-        </LabelStyled>
-        <LabelStyled>
+        </WrappInputs>
+        <WrappInputs>
           Площадь, м²
           <InputMinMaxValue filterParam="area_total" />
-        </LabelStyled>
+        </WrappInputs>
       </FilterInputs>
       {showExtendedFilter && (
         <ExtenedFilterInputs>
-          <LabelStyled>
+          <WrappInputs>
             Этаж
             <InputMinMaxValue filterParam="floor" />
-          </LabelStyled>
-          <LabelStyled>
+          </WrappInputs>
+          <WrappInputs>
             Площадь кухни, м2
             <InputMinMaxValue filterParam="area_kitchen" />
-          </LabelStyled>
-          <LabelStyled>
+          </WrappInputs>
+          <WrappInputs>
             Жилая площадь, м2
             <InputMinMaxValue filterParam="area_live" />
-          </LabelStyled>
+          </WrappInputs>
         </ExtenedFilterInputs>
       )}
       <ControlRow>
@@ -205,7 +204,9 @@ function FilterPanel({ flats }: IFilterPanel) {
             Очистить
             <img src={clearIcon} alt="Очистить" />
           </ClearBtn>
-          <ShowFoundBtn type="button">{getTextForShowBtn(flats.length)}</ShowFoundBtn>
+          <ShowFoundBtn type="button">
+            {getTextForShowBtn(flats.length)}
+          </ShowFoundBtn>
         </ClearAndShowBtns>
       </ControlRow>
     </FilterPanelStyled>
