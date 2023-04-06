@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { baseTheme } from '../../styles/theme';
 
 import { IFlat } from '../../types/types';
-import { getFormattedPrice, getPricePerSquare } from './lib';
+import { getPricePerSquare } from './lib';
 
 import favoritesIcon from './icons/favoritesIcon.svg';
 import { APPRoute } from '../../const/const';
+import { getFormattedPrice } from '../Section/lib';
 
 const FlatCardStyled = styled.div`
   background-color: ${baseTheme.colors.lightBg};

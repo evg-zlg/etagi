@@ -6,7 +6,8 @@ import { baseTheme } from '../../styles/theme';
 import { useDebounce } from '../../hooks/useDebounce';
 
 import { TFilterParams } from '../../types/types';
-import { getNewMinMaxParams } from './lib';
+import { getNewMinMaxParams, getWithoutSpaces } from './lib';
+import { getFormattedPrice } from '../Section/lib';
 
 const InputsWrapper = styled.div`
   display: flex;
@@ -41,57 +42,86 @@ interface IInputMinMaxValueProps {
 function InputMinMaxValue({ filterParam }: IInputMinMaxValueProps) {
   const keyMin = `${filterParam}_min`;
   const keyMax = `${filterParam}_max`;
-  const [searchParams, setSearchParams] = useSearchParams();
   const debounceDelay = 500;
+  const maxPrice = 999999999;
+
+  const [searchParams, setSearchParams] = useSearchParams();
   const [minValue, setMinValue] = useState('');
   const [maxValue, setMaxValue] = useState('');
   const debounceMinValue = useDebounce(minValue, debounceDelay);
   const debounceMaxValue = useDebounce(maxValue, debounceDelay);
 
-  const isValid = (value: string): boolean =>
-    value === '' || !Number.isNaN(Number(value));
+  const isValid = (value: string): boolean => {
+    const checkValue =
+      filterParam === 'price' ? getWithoutSpaces(value) : value;
+    return checkValue === '' || !Number.isNaN(Number(checkValue));
+  };
 
   const handleMinChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
+    let { value } = e.target;
     if (isValid(value)) {
+      if (filterParam === 'price') {
+        const price = Number(getWithoutSpaces(value));
+        value = price >= maxPrice ? getFormattedPrice(maxPrice) : getFormattedPrice(price);
+      }
       setMinValue(value);
     }
   };
   const handleMaxChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
+    let { value } = e.target;
     if (isValid(value)) {
+      if (filterParam === 'price') {
+        const price = Number(getWithoutSpaces(value));
+        value = price >= maxPrice ? getFormattedPrice(maxPrice) : getFormattedPrice(price);
+      }
       setMaxValue(value);
     }
   };
 
+  // initial values into inputs
   useEffect(() => {
-    const urlParamMinValue = searchParams.get(keyMin);
-    const urlParamMaxValue = searchParams.get(keyMax);
+    let urlParamMinValue = searchParams.get(keyMin);
+    let urlParamMaxValue = searchParams.get(keyMax);
     if (urlParamMinValue === null) {
       setMinValue('');
     } else {
+      if (filterParam === 'price') {
+        urlParamMinValue = getFormattedPrice(Number(urlParamMinValue));
+      }
       setMinValue(urlParamMinValue);
-    };
+    }
     if (urlParamMaxValue === null) {
       setMaxValue('');
     } else {
+      if (filterParam === 'price') {
+        urlParamMaxValue = getFormattedPrice(Number(urlParamMaxValue));
+      }
       setMaxValue(urlParamMaxValue);
     }
   }, [searchParams]);
 
+  // update search params
   useEffect(() => {
     if (debounceMinValue !== null) {
+      const newValue =
+        filterParam === 'price'
+          ? getWithoutSpaces(debounceMinValue)
+          : debounceMinValue;
       const newUrlParams: URLSearchParams = getNewMinMaxParams(
         searchParams,
-        debounceMinValue,
+        newValue,
         keyMin,
       );
       setSearchParams(newUrlParams);
     }
     if (debounceMaxValue !== null) {
+      const newValue =
+        filterParam === 'price'
+          ? getWithoutSpaces(debounceMaxValue)
+          : debounceMaxValue;
       const newUrlParams: URLSearchParams = getNewMinMaxParams(
         searchParams,
-        debounceMaxValue,
+        newValue,
         keyMax,
       );
       setSearchParams(newUrlParams);

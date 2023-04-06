@@ -1,6 +1,13 @@
-import { IFlat, TFilterParams } from '../../types/types';
+import { IFlat } from '../../types/types';
 
-// export type TFilterParams = 'rooms' | 'price' | 'area_total' | 'area_kitchen' | 'area_live' | 'floor';
+export function getFormattedPrice(price: number): string {
+  if (price === 0) return '';
+  
+  const formatter = new Intl.NumberFormat("ru");
+  console.log(formatter.format(price))
+  console.log(price)
+  return formatter.format(price);
+}
 
 export function getFilteredAndSortFlats(
   searchParams: URLSearchParams,

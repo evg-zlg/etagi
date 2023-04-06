@@ -34,10 +34,8 @@ function Section() {
   }, [flatsFromServer]);
 
   useEffect(() => {
-    if (isSuccess) {
-      setFilteredFlats(getFilteredAndSortFlats(searchParams, flatsFromServer));
-    }
-  }, [searchParams, isSuccess]);
+      setFilteredFlats(getFilteredAndSortFlats(searchParams, flatsFromStore));
+  }, [flatsFromStore, searchParams]);
 
   return (
     <SectionStyled>

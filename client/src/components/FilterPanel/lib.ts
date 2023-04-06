@@ -58,7 +58,10 @@ export function hasExtendedFilterParams(
   params: TFilterParams[],
 ): boolean {
   for (let i = 0; i < params.length; i += 1) {
-    if (searchParams.has(`${params[i]}_min`) || searchParams.has(`${params[i]}_max`)) {
+    if (
+      searchParams.has(`${params[i]}_min`) ||
+      searchParams.has(`${params[i]}_max`)
+    ) {
       return true;
     }
   }
@@ -66,9 +69,7 @@ export function hasExtendedFilterParams(
   return false;
 }
 
-
 export function getTextForShowBtn(n: number): string {
-  
   if (n === 0) return `Нет предложений`;
 
   // предложение - 1, 21, 31, ... 101, ...
@@ -77,6 +78,13 @@ export function getTextForShowBtn(n: number): string {
   // предложения - 2-4, 22-24, ..., 102-104, ...
   if (n % 10 >= 2 && n % 10 <= 4) return `Показать ${n} предложения`;
 
-  // other cases: предложений - 5-20, 25-30, ..., 100, ... 
+  // other cases: предложений - 5-20, 25-30, ..., 100, ...
   return `Показать ${n} предложений`;
+}
+
+export function getWithoutSpaces(str: string): string {
+  return str
+    .split('')
+    .filter((el) => el !== ' ')
+    .join('');
 }
