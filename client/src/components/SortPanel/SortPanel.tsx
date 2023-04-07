@@ -7,6 +7,7 @@ const SortPanelStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.p`
@@ -65,7 +66,7 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
         active={sortType === 'square-price'}
         onClick={() => setSortType('square-price')}
       >
-        цена за квадрат
+        цена за квадрат ↑
       </Btn>
       <Btn
         aria-label="Площадь"
@@ -73,7 +74,7 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
         active={sortType === 'area'}
         onClick={() => setSortType('area')}
       >
-        площадь
+        площадь ↑
       </Btn>
       
     </SortPanelStyled>
