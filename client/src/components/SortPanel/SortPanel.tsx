@@ -7,6 +7,7 @@ const SortPanelStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.p`

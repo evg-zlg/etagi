@@ -21,10 +21,11 @@ body {
   font-family: ${baseTheme.fontFamily};
   background-color: ${baseTheme.colors.primaryBg};
   color: ${baseTheme.colors.primaryText};
+  text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale;
 }
 #root {
