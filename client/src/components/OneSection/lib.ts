@@ -1,4 +1,5 @@
 import { IFlat } from '../../Models/FlatModel';
+import { countFlatsOnPage } from '../../const/const';
 import { TSortType } from './types';
 
 export function getFormattedPrice(price: number): string {
@@ -131,15 +132,16 @@ export function getTextForViewMoreBtn(
   allCount: number,
 ): string {
   const leftCount = allCount - viewCount;
+  const showMoreCount = leftCount >= countFlatsOnPage ? countFlatsOnPage : leftCount;
 
   // ещё 1, 21, 31, ... 101, ... квартира
   if (leftCount % 10 === 1 && leftCount % 100 !== 11)
-    return `Ещё ${allCount - viewCount} квартира из ${allCount}`;
+    return `Ещё ${showMoreCount} квартира из ${allCount}`;
 
   // ещё 2-4, 22-24, ..., 102-104, ... квартиры
   if (leftCount % 10 >= 2 && leftCount % 10 <= 4)
-    return `Ещё ${allCount - viewCount} квартиры из ${allCount}`;
+    return `Ещё ${showMoreCount} квартиры из ${allCount}`;
 
   // other cases: ещё 5-20, 25-30, ..., 100, ... квартир
-  return `Ещё ${allCount - viewCount} квартир из ${allCount}`;
+  return `Ещё ${showMoreCount} квартир из ${allCount}`;
 }

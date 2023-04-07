@@ -66,7 +66,7 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
         active={sortType === 'square-price'}
         onClick={() => setSortType('square-price')}
       >
-        цена за квадрат
+        цена за квадрат ↑
       </Btn>
       <Btn
         aria-label="Площадь"
@@ -74,7 +74,7 @@ function SortPanel({ sortType, setSortType }: ISortPanel) {
         active={sortType === 'area'}
         onClick={() => setSortType('area')}
       >
-        площадь
+        площадь ↑
       </Btn>
       
     </SortPanelStyled>
